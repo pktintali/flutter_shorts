@@ -1,6 +1,6 @@
 # flutter_shorts
 
-A new Flutter project.
+Instagram Reels UI Clone in Flutter.
 
 ## Getting Started
 
