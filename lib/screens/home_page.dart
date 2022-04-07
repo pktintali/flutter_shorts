@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shorts/screens/content_screen.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:card_swiper/card_swiper.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> videos = [
