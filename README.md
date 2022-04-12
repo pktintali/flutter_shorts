@@ -1,6 +1,7 @@
 # flutter_shorts
 
 Instagram Reels UI Clone in Flutter.
+Sound Null Safety Supported
 
 ## Getting Started
 
