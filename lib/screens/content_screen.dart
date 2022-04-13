@@ -5,17 +5,17 @@ import 'package:flutter_shorts/screens/options_screen.dart';
 import 'package:video_player/video_player.dart';
 
 class ContentScreen extends StatefulWidget {
-  final String src;
+  final String? src;
 
-  const ContentScreen({Key key, this.src}) : super(key: key);
+  const ContentScreen({Key? key, this.src}) : super(key: key);
 
   @override
   _ContentScreenState createState() => _ContentScreenState();
 }
 
 class _ContentScreenState extends State<ContentScreen> {
-  VideoPlayerController _videoPlayerController;
-  ChewieController _chewieController;
+  late VideoPlayerController _videoPlayerController;
+  ChewieController? _chewieController;
   bool _liked = false;
   @override
   void initState() {
@@ -24,7 +24,7 @@ class _ContentScreenState extends State<ContentScreen> {
   }
 
   Future initializePlayer() async {
-    _videoPlayerController = VideoPlayerController.network(widget.src);
+    _videoPlayerController = VideoPlayerController.network(widget.src!);
     await Future.wait([_videoPlayerController.initialize()]);
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
@@ -38,7 +38,7 @@ class _ContentScreenState extends State<ContentScreen> {
   @override
   void dispose() {
     _videoPlayerController.dispose();
-    _chewieController.dispose();
+    _chewieController!.dispose();
     super.dispose();
   }
 
@@ -48,7 +48,7 @@ class _ContentScreenState extends State<ContentScreen> {
       fit: StackFit.expand,
       children: [
         _chewieController != null &&
-                _chewieController.videoPlayerController.value.isInitialized
+                _chewieController!.videoPlayerController.value.isInitialized
             ? GestureDetector(
                 onDoubleTap: () {
                   setState(() {
@@ -56,7 +56,7 @@ class _ContentScreenState extends State<ContentScreen> {
                   });
                 },
                 child: Chewie(
-                  controller: _chewieController,
+                  controller: _chewieController!,
                 ),
               )
             : Column(
@@ -76,5 +76,3 @@ class _ContentScreenState extends State<ContentScreen> {
     );
   }
 }
-//Thanks for watching source code will be available on description
-//Like share and Subscribe
